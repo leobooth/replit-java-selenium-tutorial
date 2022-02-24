@@ -1,5 +1,7 @@
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
+import java.util.Scanner; 
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -33,6 +35,23 @@ class Main {
     String searchBoxValue = searchBox.getAttribute("value"); // => "Selenium"
     System.out.println("search box value: " + searchBoxValue);
 
+    /* use this Scanner section to pause the test
+     * until you are ready to close the web browser
+    */ 
+    Scanner sc = new Scanner(System.in);
+    System.out.println("Enter 'done' to close test.");  
+    int maxTries = 0;
+    String scannerInput = sc.next();
+    
+    while (
+      !scannerInput.equalsIgnoreCase("done") && 
+      maxTries < 10) {
+      scannerInput = sc.next();
+      maxTries++;
+    }  
+
+    sc.close();
+    
     driver.quit();
   } 
 }
