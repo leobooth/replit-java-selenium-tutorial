@@ -35,7 +35,8 @@ public class SeleniumTutorial {
   public void navigateToUrl(String url) {
     driver.get(url);
   }
-  
+
+  // TODO: make a page object for Google specific methods
   public String getPageTitle() {
     return driver.getTitle();
   }
